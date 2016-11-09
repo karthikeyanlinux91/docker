@@ -1,0 +1,16 @@
+dynamic /static keywords 
+
+cat /lib/systemd/system/httpd.service
+ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND
+
+
+Docker image creation for httpd on centos 7 
+
+# cat Dockerfile
+FROM centos
+RUN yum install httpd -y
+CMD /usr/sbin/httpd  -DFOREGROUND
+# docker build -t apache .
+# docker images
+# docker run -p 80:80 apache -d
+# docker ps
